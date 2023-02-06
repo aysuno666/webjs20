@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>web</title>
+</head>
+<body>
+    <div id="app">
+        <p v-on:mouseover = 'hover' v-on:mouseout = 'hoverOff'>
+            {{message}}
+        </p>
+
+        <div>
+            <p :class="colorTxt"> Цвет: {{ colorTxt }}</p>
+            <input type="text" v-on:input="colorTxt = $event.target.value">
+        </div>
+
+        <div class="img">
+             <button  v-on:click="isVisible = !isVisible"> <span v-if="isVisible">Скрыть</span> <span v-if="!isVisible">Показать</span></button>
+             <br> <img v-if="isVisible" width="250px" src="2.jpg" alt="img" srcset="">
+          
+             
+        </div>
+        <br>
+
+        <div >
+            <ul>
+                <li v-for="item in list" > {{item.predmet}} - {{item.prepodavatel}} </li>
+            </ul>
+        </div>
+
+    </div> 
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script><script src="test.js"></script>
+
+<script src="vue.js"></script>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9 practika</title>
+</head>
+<body>
+    <div class="pr9">
+
+        <div class="pr9z4">
+            <main> 
+                <br>
+                        <button class="btn" id="calc" onclick="func2()">click!! <span id="x"> </span></button>
+<br>
+<img width="200px" height="175px" src='' alt="img">
+            <br>
+            <button class="btn"  id="btnn" ">Switch</button>
+            <br>
+                <span id="title"></span> 
+                <img width="500px" height="400px" id="lamp" src="" alt="img"> 
+                <div class="btns">
+                    <button id="btnOn" class="btnLamp"> Включить </button> 
+                    <button id="btnOff" class="btnLamp"> Выключить</button>
+
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+<script>
+        
+    let btn = document.querySelector('#calc')
+    let x = document.querySelector('#x')
+     let y = 0;
+    btn.addEventListener('calc', func2)
+    function func2(){
+     
+      y++ 
+      x.innerHTML = y
+    }
+    
+    let img = document.querySelector('img')
+    
+    let i1 = 'lg.png'
+    let i2 = '2.jpg'
+    let listSrc = ['lg.png', '2.jpg']
+    img.src = listSrc[0]
+    let btn2 = document.querySelector('#btnn')
+    
+    
+    let tests = true
+    btn2.addEventListener('click', () => {
+      tests = !tests
+      img.src = (tests == true) ? i1 : i2
+    })
+    
+    img.addEventListener('mouseover', () =>{
+      tests = !tests
+      img.src = (tests == true) ? i1 : i2
+    })
+    
+    img.addEventListener('mouseout', () => {
+      tests = !tests
+      img.src = (tests == true) ? i1 : i2
+    })
+    
+    let t = true
+    let off = 'off.jpg'
+    let on = 'on.jpg'
+    let titleOn = 'Включите лампочку!'
+    let titleOff = 'Выключите лампочку!' 
+    let title = document.getElementById('title')
+      title.innerHTML = `${titleOn}`
+    let img2 = document.getElementById('lamp')
+    img2.src = off
+    
+    let btnOn = document.getElementById('btnOn')
+    let btnOff = document.getElementById('btnOff')
+    
+    btnOn.addEventListener('click', () => {
+      t = true
+      title.innerHTML = `${titleOff}`
+      img2.src = on
+    })
+    btnOff.addEventListener('click', () => {
+      t = false
+      title.innerHTML = `${titleOn} `
+      img2.src = off
+    })
+    
+    img2.addEventListener('dblclick', () => {
+      t = !t
+      img2.src = (t == true) ? on : off
+      title.innerHTML = (t == true) ? titleOff : titleOn
+    })
+    
+        </script>
+</html>

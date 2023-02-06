@@ -1,0 +1,224 @@
+body{ 
+    color: #000;
+       font-family: 'Kanit', sans-serif;
+   
+   }
+   img{
+       margin: 0 10px 0 0;
+   }
+   .alert{
+       width: 330px;
+     
+        position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+       display: flex;
+       padding: 15px;
+       border:  1px solid #d6e9c6;
+       border-radius: 4px;
+       color: #3c763d;
+       background-color: #dff0d8;
+       font-family: 'Times New Roman', Times, serif;
+
+   }
+   ul {
+       width: 100%;
+       height: 100%;
+   }
+   li {
+       cursor: default;
+       width: 100%;
+   }
+       .testdiv{
+           width: 15%;
+       }
+       
+   table{
+       border: 1px solid #000000;
+       border-collapse:collapse;
+   }
+   table th {
+       padding: 10px;
+       border: 1px solid #000000;
+   }
+   table td {
+       padding: 10px;
+       border: 1px solid #000000;
+       text-align:center;
+   }
+
+   /**/
+   
+body,html{
+    width: 100%;
+    overflow: hidden;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+.wrapper{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: black ;
+    justify-content: center;
+}
+.main{
+    width: 70%;
+    background-color: rgb(49, 49, 49);
+}
+.theory{
+    display: flex;
+    flex-direction: column;
+}
+.theory__header{
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+}
+.theory__body{
+    display: flex;
+    font-size: 20px;
+    
+}
+.footer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+#palette {
+    /* margin-top: 10px; */
+    display: inline-block;
+    padding: 5px;
+    
+    border: 1px solid rgb(0, 0, 0);
+    /* vertical-align: top; */
+}
+#palette {
+    width: 950px;
+}
+#clear {
+    background: #eee;
+    color: #777;
+    padding: 10px;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 4px;
+   
+}
+#clear:hover{
+    background: rgb(153, 153, 153);
+    color: #fff;
+     transition: .5s;
+}
+#canvas { 
+    display: flex;
+    border: 1px solid #000;
+}
+.custom-range {
+    width: 100%;
+}
+    
+.div1 {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+.conteiner {
+    display: flex; 
+   height: 100vh; 
+   align-items: center;
+   gap: 10px;
+    width: 100%; 
+    flex-direction: column;
+
+}
+
+.button {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    padding: 1px;
+    cursor: pointer;
+    border: 1px solid #fff;
+}
+
+.grey {
+    color: grey;
+}
+.red {
+    color: red;
+}
+.black {
+    color: black;
+}
+.green {
+    color: green;
+}
+.yellow {
+    color: yellow;
+}
+.pink {
+    color: pink;
+}
+.purple {
+    color: purple
+}
+
+li::marker {
+    content: '❖︎';
+    font-size: 1.2rem;
+}
+.pr9z4{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    
+}
+#title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px ;
+}
+.pr9z4 main {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    align-items: center;
+}
+.btns{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.btnLamp{
+    background: none;
+    font-size: 20px;
+    padding: 5px 10px;
+    border: none;
+    color: white;
+    border: 1px solid black;
+    /* border-radius: 5px; */
+}
+
+#btnOn{
+    background-color: rgb(41, 180, 41);
+}
+#btnOff{
+    background-color: rgb(216, 6, 6);
+}
+
+.btn {
+    font-size: 14px;
+    background: none ;
+    border: 1px solid black;
+    padding: 5px 15px;
+}

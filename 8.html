@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 practika</title>
+</head>
+<body>
+
+    <p id="text"> Привет!</p>
+    <button id="btn" > Click!</button> <br><br>
+    <button id="notification"> notification</button>
+    <ol>
+        <li>Задача 1</li>
+        <li>Задача 2</li>
+        <li>Задача 3</li>
+    </ol>
+</body>    
+<script>
+    let btn = document.querySelector('#btn')
+    let text = document.querySelector('#text')
+    let t = true
+
+    btn.addEventListener('click', () => {
+        t = !t;
+        text.innerHTML = (t == true) ? 'Привет!' : 'Пока!';
+        text.style.color = (t == true) ? 'green' : 'red';
+        console.log(t)
+    })
+
+
+  
+   let b = document.querySelector('#notification')
+    b.addEventListener('click', () => {
+        let alt = document.createElement('div')
+        alt.innerHTML = `<b>Всем привет! </b>  Выпрочитали важное сообщение`
+        alt.classList.add('alert')
+
+        document.body.append(alt);
+     
+        setTimeout(() => { 
+           
+            alt.parentNode.removeChild(alt)
+        
+        }, 3000)
+    })
+  
+
+  
+    let list = document.querySelector('ol')
+    let listF = document.createElement('li')
+    listF.innerHTML = '<b> Самая важная задача!!!</b></li>'
+    let listL = document.createElement('li')
+    listL.innerHTML = '<i> Задача на последок!</i>'
+    list.append(listL)
+    list.prepend(listF)
+  
+  </script>
+</html>

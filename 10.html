@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 practika</title>
+</head>
+<body>
+      <form name="myform">
+            <span>Длина </span> <input name="a" type="number" value=""> <br>
+            <span>Ширина </span> <input name="b" type="number" value=""> <br>
+        <input type="button" value="Вычислить" onclick="func()"></input>
+        <br>
+     Площадь прямоугольника  <input type="text" name="result" value="">
+       </form>
+       <br><br>
+        <form name="areatext">
+            <textarea  name="areatxt" id="" cols="30" rows="1"></textarea>
+        </form>
+        <div class="testdiv">
+            <ul class="ul" style=" list-style: none;">
+                <li class="item" onmouseover="list('Шомас Елена Александровна')">Веб-дезайн</li>
+                <li class="item" onmouseover="list('Иванова Регина Геннадьевна')">Физ-ра</li>
+                <li class="item" onmouseover="list('Абрамова Светлана Геннадьевна')">Иностранный язык</li>
+                <li class="item" onmouseover="list('Черненкова Наталья Владимировна')">Охрана труда и техника безопасности</li>
+                <li class="item" onmouseover="list('Лобачёва Милана Евгеньевна')">Математические методы</li>
+            </ul>
+        </div>
+       <br>
+      <input id="dsinput" type="text">
+      <br>
+        <button onclick="block()">block</button> <button onclick="unblock()">unblock</button>
+        <br><br>
+        <p id="paragraf"></p>
+        <input type="checkbox" name="check"  id="check" >
+</body>
+<script>
+let form = document.forms.myform
+
+function func(){
+  let number1 = form.elements.a.value
+  let number2 = form.elements.b.value
+  let s = number1 * number2
+  document.myform.result.value = s
+
+}
+
+//10pr - z2
+let form1 = document.forms.areatext
+let area = form1.elements.areatxt
+let f = document.querySelector('.item')
+let u = document.querySelector('.ul')
+
+function list(v){
+  // console.log(v) 
+  area.value = v
+  u.addEventListener('mouseout', () => {
+    area.value = ''
+  } )
+}
+
+
+let intp = document.querySelector('#dsinput')
+function block(){
+  intp.disabled = true
+}
+function unblock(){
+  intp.disabled = false
+}
+
+//10pr - z4
+let p = document.querySelector('#paragraf')
+let chekbox = document.getElementById('check')
+p.innerHTML = 'poka'
+
+chekbox.addEventListener('click', () => {
+  chekbox.checked== !chekbox.checked;
+  p.innerHTML = (chekbox.checked !== false) ? 'privet' : 'poka'  
+})
+
+
+</script>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14 practika</title>
+</head>
+<body>
+     <div class ="conteiner"> 
+                    <canvas id="canvas" width="1918" height="798"></canvas> 
+                    <div style="display: flex; align-items: center; width: 100%; justify-content: center; gap: 20px;">
+
+                        <div id="palette">  </div> 
+
+                        <div class="div1">
+                            <label for="customRange2">Толщина киски</label>
+                            <input type="range" class="custom-range"  min="1" max="60" value="5" id="customRange2">
+                        </div>
+                       <div id="clear"> Очистить </div>
+                    </div>
+                </div>
+</body>
+<script>
+    
+// завершение загрузки страницы
+window.addEventListener('load', function onWindowLoad() {
+	generatePalette(document.querySelector('#palette'));// генерируем палитру 
+
+	let canvas = document.querySelector('#canvas');
+	let context = canvas.getContext('2d');
+
+
+
+// инициализируем переменные для рисования
+	context.lineCap = "round";
+	context.lineWidth = 5;
+ 
+/* удалить */
+  document.getElementById("customRange2").addEventListener("change", function() { 
+    console.log(this.value);
+    context.lineWidth = this.value;
+  });
+/**/
+
+
+// устанавливаем обработчик на кнопку очистки изображения
+	document.querySelector('#clear').onclick = function clear() {
+		context.clearRect(0, 0, canvas.width, canvas.height);
+	};
+
+// на любое движение мыши по canvas будет выполняться данная функция
+
+	canvas.onmousemove = function drawIfPressed(e) {
+		let x = e.offsetX; // в “e” попадает экземпляр MouseEvent
+		let y = e.offsetY;
+		let dx = e.movementX;
+		let dy = e.movementY;
+
+// проверка нажатия кнопки мыши, если да – то рисуем
+
+		if(e.buttons > 0) {
+			context.beginPath();
+			context.moveTo(x, y);
+			context.lineTo(x - dx, y - dy);
+			context.stroke();
+			context.closePath();
+		}
+	};
+
+// функция генерации палитры
+	function generatePalette(palette) {
+
+		for (let r = 0, max = 3; r <= max; r++){
+			for (let g = 0; g <= max; g++) {
+				for (let b = 0; b <= max; b++) {
+					let paletteBlock = document.createElement('div');
+					paletteBlock.className = 'button';
+					paletteBlock.addEventListener('click', function changeColor(e) {
+	context.strokeStyle = e.target.style.backgroundColor;
+});
+
+	paletteBlock.style.backgroundColor = (
+		'rgb(' + Math.round(r * 255 / max) + ", "
+		+ Math.round(g * 255 / max) + ", "
+		+ Math.round(b * 255 / max) + ")"
+);
+					palette.appendChild(paletteBlock);
+				}
+			}
+		}
+	}
+
+});
+
+</script>
+</html>

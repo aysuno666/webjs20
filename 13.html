@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13 practika
+
+    </title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Worker {
+  constructor(name, surname, rate, days){
+    this.name = name;
+    this.surname = surname;
+    this.rate = rate;
+    this.days = days;    
+  }
+  getSalary(){ 
+    return document.write(`Зарплата: ${this.days * this.rate} <br> `)
+  }
+  getInfo(){
+    return document.write(`<br>${this.name} ${this.surname} <br>
+    Cтавка за день работы: ${this.rate} <br> Kоличество отработанных дней: ${this.days} <br>`)  }
+}
+
+let user = new Worker('Антон', 'Антонов', 1250, 3);
+let user2 = new Worker('Сергей', 'Васильев', 900, 5)
+
+
+user2.getInfo()
+user2.getSalary()
+
+user.getInfo()
+user.getSalary()
+</script>
+</html>

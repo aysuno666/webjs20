@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11 pracrika</title>
+</head>
+<body>
+    <div id="clock"></div>
+    <div id="timer">10</div>
+    <button id="starttimer"> start </button>
+    <br>
+    <img  width="200px" height="200px" id="pr11" src="" alt="img">
+    <div id="fruits"></div>
+     <div style=" width: 250px; text-align: center;"><p> До полуночи останось:</p></div>
+    <table>
+        <thead>
+            <tr>
+                <th>Часы</th>
+                <th>Минуты</th>
+                <th>Секунды</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="hour"></td>
+                <td id="minuts"></td>
+                <td id="secunds"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="noch"></div>
+</body>
+<script>
+//      let timer = 0;
+// let start = true;
+
+
+// setInterval(() => {
+//   while(timer <= 5){
+//   document.write(`Прошло ${timer} сек <br>`)
+//   ++timer
+//   console.log(timer)
+//   console.log(`<br> Прошло ${i} сек `)
+//   }
+// }, 1000 )
+
+// pr11 - z2
+
+
+function getTime() {
+  let date = new Date()
+  let hour = date.getHours()
+  let min = date.getMinutes()
+  let sec= date.getSeconds()
+
+  h = upgrade(hour)
+  m = upgrade(min)
+  s = upgrade(sec)
+
+  document.getElementById('clock').innerText = `${h} : ${m} : ${s} `
+    let t = setTimeout(() => {
+      getTime()
+       }, 1000)
+}
+
+function upgrade(f) {
+  if (f < 10) {
+    return "0" + f
+  }
+  else {
+    return f
+  }
+}
+
+getTime()
+
+//pr11 - z3
+
+let btn = document.getElementById('starttimer')
+
+  btn.addEventListener('click', () => {
+    let time = 10
+    document.getElementById('timer').innerHTML = `${time}` 
+    for (let i = 0; i <= 10; i++) {
+      (function(i) {
+        setTimeout(() => {
+          
+           document.getElementById('timer').innerHTML = `${time}` 
+           console.log(i)
+          time--
+            }, 1000 * i)
+      }(i))
+    }
+
+  })
+
+// //pr11 - z4 
+
+let img = [
+'https://artworld.ru/images/cms/content/catalog3/kartina_maslom_van_gogh_kopiay_olivkovye_derevja_na_fone_alp_vg201107.jpg',
+'https://4tololo.ru/sites/default/files/images/20181804152710.jpg',
+'https://losko.ru/wp-content/uploads/2019/11/cover-1.jpg',
+'https://cameralabs.org/media/k2/items/cache/cd0817e293aabd25181ebc3e9e83cb6f_L.jpg',
+'https://cs5.livemaster.ru/storage/43/b2/ef74fa025d449da5729075b12ejn--kartiny-i-panno-kartina-maslom.jpg',
+'https://cdn2.relax-fm.ru/proxy/vardata/modules/news/files/1/253/news_file_253_5d30b6388af21.jpg?w=800&h=634&t=1563473038',
+'https://ir.ozone.ru/s3/multimedia-9/c1000/6098433261.jpg',
+'https://artworld.ru/images/cms/content/catalog3/kartina_maslom_van_gogh_kopiay_olivkovye_derevja_na_fone_alp_vg201107.jpg',
+'https://i.pinimg.com/564x/76/38/db/7638db940f9b271d683c6f5fbf986756.jpg'
+]
+
+ 
+function slider(){
+  let image = document.getElementById('pr11')  
+
+  for (let i = 0; i < img.length; i++) {
+    (function(i) {
+      setTimeout(() => {
+        image.src = ` ${img[i]}`
+          }, 1000 * i)
+    }(i))
+  }
+}
+
+slider()
+
+let fruits = [
+  {
+    name: 'mandarins',
+    img: 'https://www.aldi.us/fileadmin/_processed_/2/0/csm_mandarins-overview_f0aa10394d.jpg'
+  },
+  {
+    name: 'banana',
+    img: 'https://img.freepik.com/free-vector/vector-ripe-yellow-banana-bunch-isolated-on-white-background_1284-45456.jpg?w=2000'
+  },
+  {
+    name: 'strawberries',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single2.jpg/1200px-Garden_strawberry_%28Fragaria_%C3%97_ananassa%29_single2.jpg'
+  },
+]
+
+let container = document.getElementById('fruits')
+
+  for(let i = 0;  i < 3; i++ ){
+     
+  let button = document.createElement('button');
+    button.type = 'button';
+    button.innerHTML = `${fruits[i].name}`;
+    
+
+    button.onclick = function() {
+      window.location = `${fruits[i].img}`
+     };
+ 
+    let container = document.getElementById('fruits');
+    container.appendChild(button);}
+
+
+// pr11 - last z (6)
+
+
+let polnoch = ['23', '59', '59']
+
+
+function getTimer(){
+  let date = new Date()
+  let hour = date.getHours()
+  let min = date.getMinutes()
+  let sec= date.getSeconds()
+
+  tH = parseInt(polnoch[0]) - hour
+  tM = parseInt(polnoch[1]) - min
+  tS =  parseInt(polnoch[2]) - sec + 1
+
+  tH = upgradeT(tH)
+  tM = upgradeT(tM)
+  tS = upgradeT(tS)
+ 
+  document.getElementById('hour').innerHTML = `${tH}`
+  document.getElementById('minuts').innerHTML = `${tM}`
+  document.getElementById('secunds').innerHTML = `${tS}`
+  let t = setTimeout(() => {
+    getTimer()
+  }, 1000)
+}
+
+function upgradeT(k) {
+  if (k < 10) {
+    return "0" + k
+  }
+  else {
+    return k
+  }
+}
+
+getTimer()
+
+</script>
+
+</html>
